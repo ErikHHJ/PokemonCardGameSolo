@@ -1,3 +1,5 @@
+const container = document.querySelector(".container");
+
 export const charizard = {
     name: "Charizard",
     type1: "Fire",
@@ -26,11 +28,53 @@ export const golem = {
     move2: "Headbutt",
     image: "./images/GolemCard.webp",
 };
-const pkmnArr = [blastoise , charizard , golem];
+export const mewtwo = {
+    name: "MewTwo",
+    type1: "Psychic",
+    HP: 110,
+    move1: "Psybeam",
+    move2: "Hyper-Beam",
+    image: "./images/MewTwoCard.webp",
+};
+export const steelix = {
+    name: "Steelix",
+    type1: "Steel",
+    type2: "Ground",
+    HP: 75,
+    move1: "Rock Slide",
+    move2: "Iron Tail",
+    image: "./images/SteelixCard.webp",
+};
+export const scizor = {
+    name: "Scizor",
+    type1: "Bug",
+    type2: "Steel",
+    HP: 70,
+    move1: "X-Scissor",
+    move2: "Metal Claw",
+    image: "./images/ScizorCard.webp",
+};
 
-const container = document.querySelector(".container");
+
+const pkmnArr = [blastoise , charizard , golem , mewtwo , steelix , scizor];
+
+for (let i = 0; i < pkmnArr.length; i++) {
+    const imgDiv = document.createElement("div");
+    const imgDivText = document.createElement("h4");
+    imgDivText.innerHTML = pkmnArr[i].name;
+    const imgContainer = document.createElement("img");
+    imgContainer.classList.add("headimg");
+    imgContainer.classList.add("img" + (i));
+     imgContainer.src = pkmnArr[i].image;
+     imgDiv.appendChild(imgDivText);
+    imgDiv.appendChild(imgContainer);
+    container.appendChild(imgDiv);
+};
+
 const newContainer = document.querySelector(".newcontainer");
 const title = document.querySelector(".title");
+const randomNumber = Math.floor(Math.random() * pkmnArr.length)
+console.log(randomNumber)
 
 
 const renderPokemon =  (elem) => {
@@ -50,33 +94,49 @@ const renderPokemon =  (elem) => {
 }
 
 
-const startBattle = () => {
-    img1.onclick = () => {
-        container.remove()
-        title.innerHTML = "BATTLE!!!"
-        newContainer.style.cssText = "display: flex;"
-        renderPokemon(pkmnArr[0]);
+const renderComputerPokemon = (elem) => {
+    const playerPkmname = document.querySelector(".cmppkmname");
+    playerPkmname.innerHTML = elem.name;
 
-        
+    const playerPkmImg = document.querySelector(".cmppokemonimg");
+    playerPkmImg.src = elem.image;
 
-    };
-    img2.onclick = () => {
-        container.remove()
-        title.innerHTML = "BATTLE!!!"
-        newContainer.style.cssText = "display: flex;"
-        renderPokemon(pkmnArr[1])
-    };
-    img3.onclick = () => {
-        container.remove()
-        title.innerHTML = "BATTLE!!!"
-        newContainer.style.cssText = "display: flex;"
-        renderPokemon(pkmnArr[2])
+    const moveButton1 = document.querySelector(".cmpbtn1");
+    moveButton1.innerHTML = elem.move1;
+    const movebutton2 = document.querySelector(".cmpbtn2");
+    movebutton2.innerHTML = elem.move2;
 
-    };
-    
+    const playerHealth = document.querySelector(".cmphp");
+    playerHealth.innerHTML = elem.HP;
 }
 
+const img0 = document.querySelector(".img0");
+const img1 = document.querySelector(".img1");
+const img2 = document.querySelector(".img2");
+const img3 = document.querySelector(".img3");
+const img4 = document.querySelector(".img4");
+const img5 = document.querySelector(".img5")
+
+
+const headImg = document.querySelectorAll(".headimg");
+
+
+const startBattle = () => {
+    let i = 0;
+    headImg.forEach((img) => {
+        img.addEventListener("click", function(){
+            container.remove()
+            title.innerHTML = "BATTLE!!!";
+            newContainer.style.cssText = "display:flex;";
+            renderPokemon(pkmnArr[i]);
+            renderComputerPokemon(pkmnArr[randomNumber]);
+            i++
+        })
+
+    })
+}
 startBattle()
+
 
 
 
