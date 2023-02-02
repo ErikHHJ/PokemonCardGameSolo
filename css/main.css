@@ -1,0 +1,92 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    min-height: 100vh;
+    margin: 0 auto;
+}
+.title {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: black;
+    color:chartreuse;
+    margin-bottom: 30px;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    width: 100vw;
+    text-align: center;
+    gap: 10px;
+    font-size: 30px;
+}
+.newcontainer{
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    display: none;
+}
+
+
+.playerside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+    border: 2px solid black;
+    width: 40vw;
+    height: 60vh;
+    padding: 10px;
+}
+.computerside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+    border: 2px solid black;
+    width: 40vw;
+    height: 60vh;
+    padding: 10px;
+}
+.middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.headimg{
+    width: 300px;
+    height: 300px;
+}
+.yourpokemonimg {
+    height: 200px;
+    width: 200px;
+}
+.cmppokemonimg {
+    height: 200px;
+    width: 200px;
+}
+#Progress_Status {
+    width: 30vw;
+    background-color: #ddd;
+    
+  }
+    
+  #myprogressBar {
+    width: 100%;
+    height: 35px;
+    background-color: #4CAF50;
+    text-align: center;
+    line-height: 32px;
+    color: black;
+  }
