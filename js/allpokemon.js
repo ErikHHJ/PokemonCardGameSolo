@@ -34,7 +34,7 @@ export const mewtwo = {
     HP: 106,
     move1: "Psybeam",
     move2: "Hyper-Beam",
-    image: "./images/MewTwoCard.webp",
+    image: "./images/MewtwoCard.png",
 };
 export const steelix = {
     name: "Steelix",
@@ -50,9 +50,11 @@ export const scizor = {
     type1: "Bug",
     type2: "Steel",
     HP: 70,
-    move1: "X-Scissor",
+    move1: {
+        damage: 70
+    },
     move2: "Metal Claw",
-    image: "./images/ScizorCard.webp",
+    image: "./images/ScizorCard.png",
 };
 export const seadra = {
     name: "Seadra",
@@ -60,7 +62,7 @@ export const seadra = {
     HP: 55,
     move1: "Ice Beam",
     move2: "Bubble",
-    image: "./images/SeadraCard.webp",
+    image: "./images/SeadraCard.png",
 }
 
 

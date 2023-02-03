@@ -69,6 +69,7 @@ html, body {
     width: 40vw;
     height: 80vh;
     padding: 10px;
+    background-color: lightblue;
 }
 .computerside {
     display: flex;
@@ -80,6 +81,7 @@ html, body {
     width: 40vw;
     height: 80vh;
     padding: 10px;
+    background-color: lightblue;
 }
 .middle {
     display: flex;
@@ -87,8 +89,8 @@ html, body {
     justify-content: center;
 }
 .headimg{
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
 }
 .yourpokemonimg {
     height: 200px;
