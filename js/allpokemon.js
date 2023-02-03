@@ -4,16 +4,16 @@ export const charizard = {
     name: "Charizard",
     type1: "Fire",
     type2: "Flying",
-    HP: 84,
+    HP: 78,
     move1: "Wing Attack",
     move2: "Flamethrower",
-    image: "./images/CharizardCard.webp",
+    image: "./images/CharizardCard.png",
 };
 
 export const blastoise = {
     name: "Blastoise",
     type1: "Water",
-    HP: 100,
+    HP: 79,
     move1: "Water Gun",
     move2: "Body Slam",
     image: "./images/BlastoiseCard.webp",
@@ -23,7 +23,7 @@ export const golem = {
     name: "Golem",
     type1: "Rock",
     type2: "Ground",
-    HP: 120,
+    HP: 80,
     move1: "Rock Throw",
     move2: "Headbutt",
     image: "./images/GolemCard.webp",
@@ -31,7 +31,7 @@ export const golem = {
 export const mewtwo = {
     name: "MewTwo",
     type1: "Psychic",
-    HP: 110,
+    HP: 106,
     move1: "Psybeam",
     move2: "Hyper-Beam",
     image: "./images/MewTwoCard.webp",
@@ -43,7 +43,7 @@ export const steelix = {
     HP: 75,
     move1: "Rock Slide",
     move2: "Iron Tail",
-    image: "./images/SteelixCard.webp",
+    image: "./images/SteelixCard.png",
 };
 export const scizor = {
     name: "Scizor",
@@ -54,9 +54,17 @@ export const scizor = {
     move2: "Metal Claw",
     image: "./images/ScizorCard.webp",
 };
+export const seadra = {
+    name: "Seadra",
+    type1: "Water",
+    HP: 55,
+    move1: "Ice Beam",
+    move2: "Bubble",
+    image: "./images/SeadraCard.webp",
+}
 
 
-const pkmnArr = [blastoise , charizard , golem , mewtwo , steelix , scizor];
+const pkmnArr = [blastoise , charizard , golem , mewtwo , steelix , scizor, seadra];
 
 for (let i = 0; i < pkmnArr.length; i++) {
     const imgDiv = document.createElement("div");
@@ -91,7 +99,7 @@ const renderPokemon =  (elem) => {
 
     const playerHealth = document.querySelector(".hp");
     playerHealth.innerHTML = elem.HP;
-}
+};
 
 
 const renderComputerPokemon = (elem) => {
@@ -108,7 +116,7 @@ const renderComputerPokemon = (elem) => {
 
     const playerHealth = document.querySelector(".cmphp");
     playerHealth.innerHTML = elem.HP;
-}
+};
 
 const img0 = document.querySelector(".img0");
 const img1 = document.querySelector(".img1");
@@ -122,8 +130,9 @@ const headImg = document.querySelectorAll(".headimg");
 
 
 const startBattle = () => {
-    let i = 0;
-    headImg.forEach((img) => {
+
+   /* headImg.forEach((img) => {
+        let i = 0;
         img.addEventListener("click", function(){
             container.remove()
             title.innerHTML = "BATTLE!!!";
@@ -133,8 +142,21 @@ const startBattle = () => {
             i++
         })
 
-    })
+    })*/
+    
+    for (let i = 0; i < headImg.length; i++) {
+        headImg[i].addEventListener("click", function(){
+            container.remove()
+            title.innerHTML = "BATTLE!!!";
+            newContainer.style.cssText = "display:flex;";
+            renderPokemon(pkmnArr[i]);
+            renderComputerPokemon(pkmnArr[randomNumber]);
+            
+        })
+
+    }
 }
+
 startBattle()
 
 
