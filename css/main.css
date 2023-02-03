@@ -8,12 +8,23 @@ html, body {
     width: 100%;
     height:100%;
     font-size: 62.5%;
+    font-family: 'Press Start 2P', cursive;
+    
   }
+  ul{
+    list-style: none;
+  }
+  h4 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  
   
   body {
       background: linear-gradient(-45deg, #56ec92, #3ce75b, #23a6d5, #23d5ab);
       background-size: 400% 400%;
-      animation: gradient 3s ease infinite;
+      animation: gradient 5s ease infinite;
       min-height: 100vh;
     margin: 0 auto;
   }
@@ -33,12 +44,15 @@ html, body {
 
 .title {
     display: flex;
+    font-family: "Pokemon", sans-serif;
     justify-content: center;
     padding: 20px;
     background-color: black;
     color:chartreuse;
     margin-bottom: 30px;
-    font-size: 35px;
+    font-size: 25px;
+    font-family: 'Press Start 2P', cursive;
+
 }
 
 .container {
@@ -100,7 +114,7 @@ html, body {
     height: 200px;
     width: 200px;
 }
-#Progress_Status {
+#progress_status {
     width: 30vw;
     background-color: #ddd;
     
@@ -113,4 +127,47 @@ html, body {
     text-align: center;
     line-height: 32px;
     color: black;
+    transition: all 1s;
   }
+  #progress_status2 {
+    width: 30vw;
+    background-color: #ddd;
+    
+  }
+  #cmpprogressBar{
+    width: 100%;
+    height: 35px;
+    background-color: #4CAF50;
+    text-align: center;
+    line-height: 32px;
+    color: black;
+    transition: all 1s;
+  }
+  .pkmname , .cmppkmname{
+    font-size: 25px;
+  }
+  .playerbtn1 , .playerbtn2 {
+    background-color: white;
+    padding: 10px; 
+    margin: 2px;
+    width: 20vw;
+  }
+  .playerbtn1:hover , .playerbtn2:hover {
+    background-color: lightgray;
+  }
+  .cmpbtn1 , .cmpbtn2 {
+    background-color: white;
+    padding: 10px; 
+    margin: 2px;
+    width: 20vw;
+  }
+  .cmphp {
+    font-size: 15px;
+  }
+  .hp {
+    font-size: 15px;
+  }
+  /*.cmpbtn1:hover , .cmpbtn2:hover {
+    background-color: lightgray;
+  }*/
+
