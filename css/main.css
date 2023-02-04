@@ -67,8 +67,8 @@ html, body {
 }
 .newcontainer{
     display: flex;
-    gap: 100px;
-    justify-content: center;
+    gap: 25px;
+    justify-content: space-between;
     display: none;
 }
 
@@ -101,6 +101,12 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 40px;
+    flex-direction: column;
+    font-size: 15px;
+}
+.movemessage {
+  font-size: 10px;
 }
 .headimg{
     width: 200px;

@@ -73,6 +73,7 @@ export const seadra = {
 
 const pkmnArr = [blastoise , charizard , golem , mewtwo , steelix , scizor, seadra];
 
+
 for (let i = 0; i < pkmnArr.length; i++) {
     const imgDiv = document.createElement("div");
     const imgDivText = document.createElement("h4");
@@ -126,6 +127,15 @@ const renderComputerPokemon = (elem) => {
 
     
 };
+const playerHP0 = document.querySelector(".hp");
+const cpuHP0 = document.querySelector(".cmphp");
+if (playerHP0.innerHTML < 1){
+    showPlayerHP.innerHTML = 0;
+    moveMessage.innerHTML =  `${pkmn2.name} WINS!!`;
+} else if (cpuHP0.innerHTML < 1) {
+    showCpuHP.innerHTML = 0;
+    moveMessage.innerHTML = `${pkmn.name} WINS!!`;
+}
 
 const img0 = document.querySelector(".img0");
 const img1 = document.querySelector(".img1");
@@ -137,23 +147,11 @@ const img5 = document.querySelector(".img5");
 
 
 const headImg = document.querySelectorAll(".headimg");
+audio.volume = 0.5;
 
 
 const initalizePokemons = () => {
 
-   /* headImg.forEach((img) => {
-        let i = 0;
-        img.addEventListener("click", function(){
-            container.remove()
-            title.innerHTML = "BATTLE!!!";
-            newContainer.style.cssText = "display:flex;";
-            renderPokemon(pkmnArr[i]);
-            renderComputerPokemon(pkmnArr[randomNumber]);
-            i++
-        })
-
-    })*/
-    
     for (let i = 0; i < headImg.length; i++) {
         headImg[i].addEventListener("click", function(){
             container.remove()
@@ -162,6 +160,9 @@ const initalizePokemons = () => {
             renderPokemon(pkmnArr[i]);
             renderComputerPokemon(pkmnArr[randomNumber]);
             gameLoop(pkmnArr[i] , pkmnArr[randomNumber]);
+            audio.volume = 0.05; 
+            audio.play()
+            
         })
 
     }
@@ -175,6 +176,8 @@ const cpuHP = document.querySelector("#cmpprogressBar");
 const playerHP = document.querySelector("#myprogressBar");
 const showCpuHP = document.querySelector(".cmphp");
 const showPlayerHP = document.querySelector(".hp")
+const moveMessage = document.createElement("h4");
+moveMessage.classList.add("movemessage");
 
 const gameLoop = (pkmn , pkmn2) => {
     initializeButtons(pkmn , pkmn2);
@@ -190,45 +193,61 @@ const initializeButtons = (pkmn , pkmn2) => {
     const moveBtn1 = document.querySelector(".playerbtn1");
     const moveBtn2 = document.querySelector(".playerbtn2");
     
+    
 
     const getComputerChoice = () => {                         
         const randomMove = Math.floor(Math.random() * 2) + 1;
         if (randomMove === 1){
-            pkmn.HP -= pkmn2.move1.damage;    
+            pkmn.HP -= pkmn2.move1.damage; 
+            moveMessage.innerHTML = `${pkmn2.name} used ${pkmn2.move1.name}!!`;   
         } else if (randomMove === 2) {
-            pkmn.HP -= pkmn2.move2.damage;  
+            pkmn.HP -= pkmn2.move2.damage; 
+            moveMessage.innerHTML = `${pkmn2.name} used ${pkmn2.move2.name}!!`;  
         }          
     }  
-
+    
     moveBtn1.onclick = () => {     
         pkmn2.HP -= pkmn.move1.damage;
         cpuHP.style.width = `${getPokemonHpPercent(pkmn2)}%`
         showCpuHP.innerHTML = pkmn2.HP;
+        const middlePart = document.querySelector(".middle");
+
+        moveMessage.innerHTML = `${pkmn.name} used ${pkmn.move1.name}!!`;
+        middlePart.appendChild(moveMessage)
+
 
         setTimeout(function() {
             getComputerChoice();
             playerHP.style.width = `${getPokemonHpPercent(pkmn)}%`
             showPlayerHP.innerHTML = pkmn.HP;
-        }, 2000);                               
+        }, 3000);                               
     }
 
     moveBtn2.onclick = () => {
         pkmn2.HP -= pkmn.move2.damage;
         cpuHP.style.width = `${getPokemonHpPercent(pkmn2)}%`
         showCpuHP.innerHTML = pkmn2.HP;
+        const middlePart = document.querySelector(".middle");
+        moveMessage.innerHTML = `${pkmn.name} used ${pkmn.move2.name}!!`;
+        middlePart.appendChild(moveMessage)
         
         setTimeout(function() {
             getComputerChoice();
             playerHP.style.width = `${getPokemonHpPercent(pkmn)}%`
             showPlayerHP.innerHTML = pkmn.HP;
-        }, 2000);
-    }    
+        }, 3000);
+    }  
+    
+    
 }
 
 const getPokemonHpPercent = (pkmn) => {
     const hpPercent  = pkmn.HP / pkmn.MAXHP * 100;
     return hpPercent > 0 ? hpPercent : 0;
 } 
+
+
+
 
 
 
