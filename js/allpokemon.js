@@ -127,15 +127,6 @@ const renderComputerPokemon = (elem) => {
 
     
 };
-const playerHP0 = document.querySelector(".hp");
-const cpuHP0 = document.querySelector(".cmphp");
-if (playerHP0.innerHTML < 1){
-    showPlayerHP.innerHTML = 0;
-    moveMessage.innerHTML =  `${pkmn2.name} WINS!!`;
-} else if (cpuHP0.innerHTML < 1) {
-    showCpuHP.innerHTML = 0;
-    moveMessage.innerHTML = `${pkmn.name} WINS!!`;
-}
 
 const img0 = document.querySelector(".img0");
 const img1 = document.querySelector(".img1");
@@ -247,8 +238,16 @@ const getPokemonHpPercent = (pkmn) => {
 } 
 
 
-
-
+/*
+const playerHP0 = document.querySelector(".hp");
+const cpuHP0 = document.querySelector(".cmphp");
+if (playerHP0.innerHTML < 1){
+    showPlayerHP.innerHTML = 0;
+    moveMessage.innerHTML =  `${pkmn2.name} WINS!!`;
+} else if (cpuHP0.innerHTML < 1) {
+    showCpuHP.innerHTML = 0;
+    moveMessage.innerHTML = `${pkmn.name} WINS!!`;
+}*/
 
 
 
