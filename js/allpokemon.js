@@ -205,30 +205,53 @@ const initializeButtons = (pkmn , pkmn2) => {
 
         moveMessage.innerHTML = `${pkmn.name} used ${pkmn.move1.name}!!`;
         middlePart.appendChild(moveMessage)
+        if (pkmn2.HP < 1){
+            showCpuHP.innerHTML = 0;
+            title.innerHTML = `${pkmn.name} WINS!!!`;
+        }
 
 
         setTimeout(function() {
             getComputerChoice();
             playerHP.style.width = `${getPokemonHpPercent(pkmn)}%`
             showPlayerHP.innerHTML = pkmn.HP;
-        }, 3000);                               
+            if (pkmn.HP < 1){
+                showPlayerHP.innerHTML = 0;
+                title.innerHTML = `${pkmn2.name} WINS!!!`;
+            } else if (showCpuHP < 1 && showPlayerHP < 1){
+                title.innerHTML = "DRAW!!!";
+                }  
+        }, 3000); 
+                                
     }
 
     moveBtn2.onclick = () => {
         pkmn2.HP -= pkmn.move2.damage;
         cpuHP.style.width = `${getPokemonHpPercent(pkmn2)}%`
+        
         showCpuHP.innerHTML = pkmn2.HP;
         const middlePart = document.querySelector(".middle");
         moveMessage.innerHTML = `${pkmn.name} used ${pkmn.move2.name}!!`;
         middlePart.appendChild(moveMessage)
+
+        if (pkmn2.HP < 1){
+            showCpuHP.innerHTML = 0;
+            title.innerHTML = `${pkmn.name} WINS!!!`;
+        } 
         
         setTimeout(function() {
             getComputerChoice();
             playerHP.style.width = `${getPokemonHpPercent(pkmn)}%`
             showPlayerHP.innerHTML = pkmn.HP;
+            if (pkmn.HP < 1){
+                showPlayerHP.innerHTML = 0;
+                title.innerHTML = `${pkmn2.name} WINS!!!`;
+            } else if (showCpuHP < 1 && showPlayerHP < 1){
+                title.innerHTML = "DRAW!!!";
+                }  
         }, 3000);
+        
     }  
-    
     
 }
 
@@ -236,18 +259,12 @@ const getPokemonHpPercent = (pkmn) => {
     const hpPercent  = pkmn.HP / pkmn.MAXHP * 100;
     return hpPercent > 0 ? hpPercent : 0;
 } 
+ 
 
 
-/*
-const playerHP0 = document.querySelector(".hp");
-const cpuHP0 = document.querySelector(".cmphp");
-if (playerHP0.innerHTML < 1){
-    showPlayerHP.innerHTML = 0;
-    moveMessage.innerHTML =  `${pkmn2.name} WINS!!`;
-} else if (cpuHP0.innerHTML < 1) {
-    showCpuHP.innerHTML = 0;
-    moveMessage.innerHTML = `${pkmn.name} WINS!!`;
-}*/
+
+
+
 
 
 
