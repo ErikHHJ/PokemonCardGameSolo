@@ -173,6 +173,18 @@ html, body {
   .hp {
     font-size: 15px;
   }
+  .return {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    border: 2px solid green;
+    padding: 10px;
+    color: lightgreen;
+  }
+  .return:hover {
+    background-color: lightgreen;
+    color: black;
+  }
   /*.cmpbtn1:hover , .cmpbtn2:hover {
     background-color: lightgray;
   }*/
