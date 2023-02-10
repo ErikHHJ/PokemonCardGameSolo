@@ -208,6 +208,8 @@ const initializeButtons = (pkmn , pkmn2) => {
         if (pkmn2.HP < 1){
             showCpuHP.innerHTML = 0;
             title.innerHTML = `${pkmn.name} WINS!!!`;
+            moveBtn1.disabled = true;
+            moveBtn2.disabled = true;
         }
 
 
@@ -218,9 +220,9 @@ const initializeButtons = (pkmn , pkmn2) => {
             if (pkmn.HP < 1){
                 showPlayerHP.innerHTML = 0;
                 title.innerHTML = `${pkmn2.name} WINS!!!`;
-            } else if (showCpuHP < 1 && showPlayerHP < 1){
-                title.innerHTML = "DRAW!!!";
-                }  
+                moveBtn1.disabled = true;
+                moveBtn2.disabled = true;
+            }   
         }, 3000); 
                                 
     }
@@ -237,6 +239,8 @@ const initializeButtons = (pkmn , pkmn2) => {
         if (pkmn2.HP < 1){
             showCpuHP.innerHTML = 0;
             title.innerHTML = `${pkmn.name} WINS!!!`;
+            moveBtn2.disabled = true;
+            moveBtn1.disabled = true;
         } 
         
         setTimeout(function() {
@@ -246,9 +250,9 @@ const initializeButtons = (pkmn , pkmn2) => {
             if (pkmn.HP < 1){
                 showPlayerHP.innerHTML = 0;
                 title.innerHTML = `${pkmn2.name} WINS!!!`;
-            } else if (showCpuHP < 1 && showPlayerHP < 1){
-                title.innerHTML = "DRAW!!!";
-                }  
+                moveBtn2.disabled = true;
+                moveBtn1.disabled = true;
+            } 
         }, 3000);
         
     }  
@@ -259,8 +263,24 @@ const getPokemonHpPercent = (pkmn) => {
     const hpPercent  = pkmn.HP / pkmn.MAXHP * 100;
     return hpPercent > 0 ? hpPercent : 0;
 } 
- 
 
+ const ifDraw = () => {
+    console.log(typeof showPlayerHP.innerHTML);
+    if (showPlayerHP.innerHTML === "0" && showCpuHP.innerHTML === "0"){
+        title.innerHTML = "DRAW!!!";
+
+        clearInterval(ifDraw);
+    }    
+ }
+ setInterval(ifDraw ,1000);
+/*setInterval( () => {
+    console.log("checking");
+    if (showPlayerHP.innerHTML === 0 && showCpuHP.innerHTML === 0){
+        title.innerHTML = "DRAW!!!"
+        clearInterval()
+    }
+} ,1000);*/
+    
 
 
 
