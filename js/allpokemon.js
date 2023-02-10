@@ -169,6 +169,7 @@ const showCpuHP = document.querySelector(".cmphp");
 const showPlayerHP = document.querySelector(".hp")
 const moveMessage = document.createElement("h4");
 moveMessage.classList.add("movemessage");
+const returnBtn = document.querySelector(".return");
 
 const gameLoop = (pkmn , pkmn2) => {
     initializeButtons(pkmn , pkmn2);
@@ -210,6 +211,7 @@ const initializeButtons = (pkmn , pkmn2) => {
             title.innerHTML = `${pkmn.name} WINS!!!`;
             moveBtn1.disabled = true;
             moveBtn2.disabled = true;
+            returnBtn.style.cssText = "top: 60%;  left:44%; color:red;";
         }
 
 
@@ -222,6 +224,7 @@ const initializeButtons = (pkmn , pkmn2) => {
                 title.innerHTML = `${pkmn2.name} WINS!!!`;
                 moveBtn1.disabled = true;
                 moveBtn2.disabled = true;
+                returnBtn.style.cssText = "top: 60%;  left:44%; color:red;";
             }   
         }, 3000); 
                                 
@@ -241,6 +244,8 @@ const initializeButtons = (pkmn , pkmn2) => {
             title.innerHTML = `${pkmn.name} WINS!!!`;
             moveBtn2.disabled = true;
             moveBtn1.disabled = true;
+            returnBtn.style.cssText = "top: 60%;  left:44%; color:red;";
+
         } 
         
         setTimeout(function() {
@@ -252,6 +257,8 @@ const initializeButtons = (pkmn , pkmn2) => {
                 title.innerHTML = `${pkmn2.name} WINS!!!`;
                 moveBtn2.disabled = true;
                 moveBtn1.disabled = true;
+                returnBtn.style.cssText = "top: 60%; left:44%; color:red;";
+
             } 
         }, 3000);
         
@@ -265,7 +272,6 @@ const getPokemonHpPercent = (pkmn) => {
 } 
 
  const ifDraw = () => {
-    console.log(typeof showPlayerHP.innerHTML);
     if (showPlayerHP.innerHTML === "0" && showCpuHP.innerHTML === "0"){
         title.innerHTML = "DRAW!!!";
 

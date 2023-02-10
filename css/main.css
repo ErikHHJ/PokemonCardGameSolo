@@ -106,7 +106,7 @@ html, body {
     font-size: 15px;
 }
 .movemessage {
-  font-size: 10px;
+  font-size: 9px;
 }
 .headimg{
     width: 200px;
@@ -180,6 +180,7 @@ html, body {
     border: 2px solid green;
     padding: 10px;
     color: lightgreen;
+    background-color: black;
   }
   .return:hover {
     background-color: lightgreen;
